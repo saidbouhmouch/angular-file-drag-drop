@@ -1,0 +1,13 @@
+<div class="dropzone flex justify-center mt-10 w-4/12 py-20 px-4 mx-auto" (drop)="dropHandler($event)" (dragover)="dragOverHandler($event)"
+  (dragleave)="dragLeaveHandler()" (dragenter)="dragEnterHandler($event)">
+  <p [ngClass]="{ invisible: fileOver }" class="flex items-center text-sm flex-wrap text-blue-500">
+    <span class="material-icons text-blue-500 mr-2 text-2xl"> description </span>
+    <span *ngIf="file" class="font-bold">{{ file.name }}</span>
+    <span *ngIf="!file" class="font-bold"> Drag and drop your files anywhere or &nbsp; </span>
+    <input #fileInput id="hidden-input" type="file" multiple class="hidden" (change)="fileChange($event)" />
+    <button (click)="fileInput.click()" *ngIf="!file" type="button" class="font-bold border-b border-blue-10">
+      choose a file
+    </button>
+  </p>
+</div>
+
